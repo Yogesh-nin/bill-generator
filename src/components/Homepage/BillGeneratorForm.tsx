@@ -61,7 +61,7 @@ const formSchema = z.object({
 export type CustomerFormData = z.infer<typeof formSchema>;
 
 const BillGeneratorForm = () => {
-  const [date, setDate] = React.useState<Date>();
+  const [date] = React.useState<Date>();
   const dispatch = useDispatch();
   const [openDialog, setOpenDialog] = useState(false);
   const [currentInvoice, setCurrentInvoice] = useState<CustomerFormData | null>(

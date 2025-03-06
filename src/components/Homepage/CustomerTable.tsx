@@ -1,8 +1,7 @@
-import React from "react";
+
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -10,7 +9,6 @@ import {
 } from "@/components/ui/table";
 import { useSelector } from "react-redux";
 import { formatDate } from "./BillPdf";
-import { Download, Edit } from "lucide-react";
 import DownloadDialog from "./DownloadDialog";
 import { RootState } from "@/redux/store";
 import { CustomerFormData } from "./BillGeneratorForm";

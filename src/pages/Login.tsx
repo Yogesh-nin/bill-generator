@@ -1,10 +1,7 @@
 import { LoginForm } from "@/components/Homepage/LoginForm";
-import React from "react";
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
