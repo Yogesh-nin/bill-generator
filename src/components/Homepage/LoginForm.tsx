@@ -20,9 +20,11 @@ const FormSchema = z.object({
   email: z.string().min(2, {
     message: "Username must be at least 2 characters.",
   }),
-    password: z.string().min(6, {
-        message: "Password must be atleast 6 characters"
-    })
+  password: z.string()
+  .min(6, { message: "Password must be at least 6 characters." })
+  .regex(/[a-z]/, { message: "Password must contain at least one lowercase letter." })
+  .regex(/[A-Z]/, { message: "Password must contain at least one uppercase letter." })
+  .regex(/[0-9]/, { message: "Password must contain at least one number." }),
     
 })
 
@@ -41,8 +43,7 @@ export function LoginForm() {
   })
 
   const {
-    handleSubmit,
-    formState: { isValid }
+    handleSubmit
   } = form
 
   const onSubmit = (data: FormData ) => {
@@ -63,7 +64,7 @@ export function LoginForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="johndoe@gmail.com" {...field} />
+                <Input type="email" className="bg-white" placeholder="johndoe@gmail.com" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -76,13 +77,13 @@ export function LoginForm() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your password" {...field} />
+                <Input className="bg-white" placeholder="Enter your password" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button disabled={!isValid} type="submit">Submit</Button>
+        <Button type="submit">Submit</Button>
       </form>
     </Form>
   )
